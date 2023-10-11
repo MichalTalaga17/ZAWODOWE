@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script   src="https://code.jquery.com/jquery-3.7.1.js"   integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="   crossorigin="anonymous"></script>
+    <style>
+        *{
+            border: 1px solid black;
+            padding: 10px;
+            margin: 10px;
+        }
+        .klasa{
+            background-color: red;
+        }
+    </style>
+</head>
+    <div> div
+        <ul>ul
+            <li>li<span>span</span></li>
+        </ul>
+        <ul>ul2</ul>
+    </div>
+    <input type="text" name="" id="">
+    <button class="del">klik</button>
+    <button class="add">klik</button>
+    <ul class="content">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+        $(function(){
+            $('div').click(function(){
+                $(this).children().addClass('klasa');
+            })
+            $('div').on({
+                    dbclick: function(){
+                        $(this).children().addClass('klasa');
+                    },
+            })
+            $('input').on({
+                focus: function(){
+                    $(this).css('background-color', 'red');
+                },
+                blur: function(){
+                    $(this).css('background-color', 'white');
+                }
+            })
+            $('input').val('test');
+            //przechwyć tekst z inputa
+            $('input').on('change', function(){  
+                console.log($(this).val());
+            })
+
+            $('.del').click(function(){
+                //dodaj li do content z numerem kolejnym
+                // let li = $('<li>');
+                // li.text($('.content li').length + 1);
+                $('.content').removeClass('klasa');
+
+            })
+            $('.add').click(function(){
+                // //dodaj li do content z numerem kolejnym
+                // let li = $('<li>');
+                // li.text($('.content li').length + 1);
+                $('.content').addClass('klasa');
+
+            })
+            // $('span').parents().css('border', '3px solid red');
+            // $('span').parent().css('border', '3px solid blue');
+            
+            // $('span').parents('div').css('border', '3px solid yellow');
+            // $('span').parentsUntil('li').css('border', '3px solid green');
+        })
+    </script>
+    
+</body>
+</html>

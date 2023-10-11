@@ -1,0 +1,7 @@
+Imię: Michał
+Nazwisko: dwjg
+PESEL: 
+Kod pocztowy: 32-222
+Płeć: Mężczyzna
+Województwo: Podlaskie
+Zainteresowania: ['Zainteresowanie 2', 'Zainteresowanie 3', 'Zainteresowanie 4', 'Zainteresowanie 6']

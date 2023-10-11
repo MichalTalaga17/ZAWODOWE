@@ -1,0 +1,3 @@
+/Users/michaltalaga/Desktop/DESKTOPOWE/cpp/test/cmake-build-debug/CMakeFiles/test.dir
+/Users/michaltalaga/Desktop/DESKTOPOWE/cpp/test/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/michaltalaga/Desktop/DESKTOPOWE/cpp/test/cmake-build-debug/CMakeFiles/rebuild_cache.dir
