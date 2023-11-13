@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script   src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"   integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY="   crossorigin="anonymous"></script>
+  <style>
+    @import 'https://fonts.googleapis.com/css?family=Raleway';
+
+    body {
+      background: #666666;
+      font-family: 'Raleway', sans-serif;
+
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    .form {
+      text-align: center;
+      background: #FFF;
+      width: 33.333%;
+      min-height: 500px;
+      float: left;
+    }
+
+
+    textarea {
+      border-color: transparent !important;
+      background: #e4e4e4;
+      margin: 0 auto;
+      display: block;
+      width: 90%;
+      min-height: 34px;
+      padding: 6px 12px;
+      font-size: 14px;
+      line-height: 1.42857143;
+      color: #555;
+
+      background-image: none;
+      border-radius: 4px;
+    }
+
+    .list-todo {
+      background: #F6f6f6;
+      width: 33.333%;
+      min-height: 500px;
+      float: left;
+      text-align: center;
+    }
+
+
+    .list-item {
+      color: #FFF;
+      margin: 0 auto;
+      margin-top: 20px;
+      min-width: 200px;
+      max-width: 250px;
+      background: #ce3535;
+      font-size: 20px;
+      line-height: 1.42857143;
+      border-radius: 3px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .list-done {
+      text-align: center;
+      background: #e4e4e4;
+      width: 33.333%;
+      min-height: 500px;
+      float: left;
+
+    }
+
+    .button {
+      width: 100%;
+      background: #666666;
+      margin-bottom: 20px;
+      margin-top: 20px;
+      line-height: 1.42857143;
+      border-radius: 3px;
+      height: 40px;
+      border: 0px;
+      color: #FFF;
+      font-size: 18px;
+      vertical-align: middle;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="form">
+    <h2>New task</h2>
+
+    <textarea rows="4" cols="50" id="task" name="task"></textarea>
+    <button class="button" id="add">Send </button>
+  </div>
+
+  <div id="todo" class="list-todo">
+    <h2> To do: </h2>
+    <ul id="list-todo">
+    </ul>
+  </div>
+
+  <div class="list-done" id="done">
+    <h2> Done </h2>
+    <ul id="list-done">
+    </ul>
+
+  </div>
+  <script>var $todo;
+    var itemCount = 0;
+    function setReady($item) {
+      $item.animate({ backgroundColor: "#61bd6d" });
+      $('#list-done').append($item);
+    }
+
+    function setNotReady($item) {
+      $item.animate({ backgroundColor: "#ce3535" });
+      $('#list-todo').append($item);
+    }
+
+
+    function addItem() {
+      console.log("add");
+      // var task = $('#task').val();
+      // $('#list-todo').append("<li class='list-item' id=list_'" + itemCount + "'>" + task + "</li>");
+      // $("li", "#list-todo").draggable(
+      //   {
+      //     revert: "invalid",
+      //     cursor: "move",
+      //     helper: "clone"
+      //   }
+      // );
+
+      // itemCount++;
+    };
+
+
+
+    $(function () {
+      $("#add").onclick = addItem;
+      $("li", "#list-todo").draggable(
+        {
+          revert: "invalid",
+          cursor: "move",
+          helper: "clone"
+        }
+      );
+
+
+
+      $("#done").droppable({
+
+        drop: function (event, ui) {
+          item = ui.draggable;
+          setReady(item);
+        }
+
+      })
+
+      $("li", "#list-done").draggable(
+        {
+          revert: "invalid",
+          cursor: "move",
+          helper: "clone"
+        }
+      );
+
+
+
+      $("#todo").droppable({
+
+        drop: function (event, ui) {
+          item = ui.draggable;
+          setNotReady(item);
+        }
+
+      })
+
+
+    });
+  </script>
+</body>
+
+</html>
