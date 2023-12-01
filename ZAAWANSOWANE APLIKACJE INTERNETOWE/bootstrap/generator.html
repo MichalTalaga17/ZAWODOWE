@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <style>
+
+    </style>
+
+</head>
+
+<body class="bg-primary">
+
+
+    <main>
+        <div class="container bg-white mt-5 p-2 p-md-5">
+            <div class="container bg-white mt-5 p-2 p-md-5 rounded">
+                <div class="row">
+                    <h1 class="col-12 justify-content-center d-flex">Generator hasła</h1>
+                </div>
+                <div class="row">
+                    <div class="input-group mb-2 mr-sm-2">
+
+                        <input type="text" class="form-control rounded" id="inlineFormInputGroupUsername2"
+                            placeholder="">
+                        <div class="input-group-append">
+                            <div class="input-group-text rounded bg-warning copy"><i class="bi bi-clipboard"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-3"></div>
+                    <div class="col-12 col-md-3">
+                        <div class="col-12 text-center ">Długość hasła</div>
+                        <div class="col-12"></div>
+
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <input class="col-12" type="number" id="number" min="5" max="15" value="8">
+                        <input type="range" class=" col-12 form-range" id="customRange1" min="5" max="15">
+                    </div>
+                    <div class="col-12 col-md-3"></div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-0 md-align-item-center"></div>
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <div class="form-check form-switch justify-content-center">
+                            <input class="form-check-input" type="checkbox" id="duze_litery"
+                                checked>
+                            <label class="form-check-label" for="flexSwitchCheckChecked">Duze litery</label>
+                        </div>
+                        <div class="form-check form-switch justify-content-center">
+                            <input class="form-check-input" type="checkbox" id="cyfry" checked>
+                            <label class="form-check-label" for="flexSwitchCheckChecked">Cyfry</label>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <div class="form-check form-switch justify-content-center">
+                            <input class="form-check-input" type="checkbox" id="male_litery"
+                                checked>
+                            <label class="form-check-label" for="flexSwitchCheckChecked">Małe litery</label>
+                        </div>
+                        <div class="form-check form-switch justify-content-center">
+                            <input class="form-check-input" type="checkbox" id="specjalne" checked>
+                            <label class="form-check-label" for="flexSwitchCheckChecked">Znaki specjalne</label>
+                        </div>
+                    </div>
+                    <div class="col-3 col-0"></div>
+                </div>
+
+
+            </div>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <button class="btn btn-primary text-center" type="submit">Generuj</button>
+                </div>
+
+
+            </div>
+    </main>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+    <script>
+        let slider = document.getElementById("customRange1");
+let number = document.getElementById("number");
+let duze_litery = document.getElementById("duze_litery");
+let male_litery = document.getElementById("male_litery");
+let cyfry = document.getElementById("cyfry");
+let specjale = document.getElementById("specjalne");
+let submit = document.querySelector("button");
+let copy = document.querySelector(".copy");
+let input = document.querySelector("#inlineFormInputGroupUsername2");
+
+slider.value = number.value;
+
+function zmiana() {
+    number.value = slider.value;
+}
+
+slider.addEventListener("input", zmiana);
+number.addEventListener("input", zmiana);
+
+function main() {
+    znaki = [];
+    
+    if (duze_litery.checked) {
+        znaki.push("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "R", "S", "T", "W", "Y", "Z");
+    }
+    
+    if (male_litery.checked) {
+        znaki.push("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "r", "s", "t", "w", "y", "z");
+    }
+    
+    if (cyfry.checked) {
+        znaki.push("1", "2", "3", "4", "5", "6", "7", "8", "9", "0");
+    }
+    
+    if (specjalne.checked) {
+        znaki.push("!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "=", "-", "[", "]", "{", "}", ";", ":", "'", "<", ">", ",", ".", "/", "?", "|", "~");
+    }
+
+    if (!(specjale.checked || cyfry.checked || male_litery.checked || duze_litery.checked)) {
+        alert("Wybierz przynajmniej jedną opcję");
+        input.value = "";
+        return;
+    }
+
+    let pass = "";
+    pass += duze_litery.checked ? getRandomChar("ABCDEFGHIJKLMNOPQRSTUVWXYZ") : "";
+    pass += male_litery.checked ? getRandomChar("abcdefghijklmnopqrstuvwxyz") : "";
+    pass += cyfry.checked ? getRandomChar("0123456789") : "";
+    pass += specjale.checked ? getRandomChar("!@#$%^&*()_+=-[]{};:'<>./?|~") : "";
+
+    for (let index = pass.length; index < number.value; index++) {
+        let znak = Math.floor(Math.random() * znaki.length);
+        pass += znaki[znak];
+    }
+
+    input.value = pass;
+}
+
+function getRandomChar(characters) {
+    return characters.charAt(Math.floor(Math.random() * characters.length));
+}
+
+submit.addEventListener("click", main);
+
+copy.addEventListener("click", function () {
+    let text = document.querySelector("input");
+    text.select();
+    text.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+});
+
+
+    </script>
+</body>
+
+</html>
